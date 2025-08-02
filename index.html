@@ -29,7 +29,7 @@
     </form>
   </div>
 
-  <script>
+   <script>
     function sanitize(input) {
       return input.replace(/[<>]/g, '');
     }
@@ -48,12 +48,14 @@
         return;
       }
 
-      const nomorWA = '6285959536858'; // Ganti dengan nomor tujuan
+      const nomorWA = '6281234567890'; // Ganti dengan nomor tujuan
       let pesan = `Halo! Saya ingin konfirmasi kehadiran:\n\n` +
                   `Nama: ${nama}\nAlamat: ${alamat}\nNo HP: ${hp}\n` +
-                  `Hadir: Ya\n`;
+                  `Hadir: ✅\n`;
 
-      pesan += pasangan ? `Membawa pasangan: Ya\n` : `Membawa pasangan: Tidak\n`;
+      pesan += pasangan
+        ? `Membawa pasangan: ✅\n`
+        : `Membawa pasangan: ❌\n`;
 
       const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       window.open(url, '_blank');
