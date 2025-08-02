@@ -24,37 +24,37 @@
       <label for="kehadiran">Kehadiran:</label>
       <select id="kehadiran" required>
         <option value="">-- Pilih --</option>
-        <option value="Ya">✅ Hadir</option>
-        <option value="Tidak">❌ Tidak Hadir</option>
+        <option value="✅ Hadir">✅ Hadir</option>
+        <option value="❌ Tidak Hadir">❌ Tidak Hadir</option>
       </select>
 
       <label for="pasangan">Membawa Pasangan:</label>
       <select id="pasangan" required>
         <option value="">-- Pilih --</option>
-        <option value="Ya">✅ Ya</option>
-        <option value="Tidak">❌ Tidak</option>
+        <option value="✅ Ya">✅ Ya</option>
+        <option value="❌ Tidak">❌ Tidak</option>
       </select>
 
       <div class="checkbox-group">
         <h3>Fitur yang Diinginkan:</h3>
-        <label><input type="checkbox" name="fitur" value="Unlimate Nama Tamu" />Unlimate Nama Tamu</label>
-        <label><input type="checkbox" name="fitur" value="Sampul" />Sampul</label>
-        <label><input type="checkbox" name="fitur" value="Informasi Mempelai" />Informasi Mempelai</label>
-        <label><input type="checkbox" name="fitur" value="Informasi Acara" />Informasi Acara (max 2 acara)</label>
-        <label><input type="checkbox" name="fitur" value="Navigasi Peta" />Navigasi Peta</label>
-        <label><input type="checkbox" name="fitur" value="Request Musik" />Request Musik</label>
-        <label><input type="checkbox" name="fitur" value="Countdown Timer" />Countdown Timer</label>
-        <label><input type="checkbox" name="fitur" value="RSVP" />RSVP</label>
-        <label><input type="checkbox" name="fitur" value="Friends Wishes" />Friends Wishes</label>
-        <label><input type="checkbox" name="fitur" value="Link Live Streaming" />Link Live Streaming</label>
-        <label><input type="checkbox" name="fitur" value="Gallery Foto" />Gallery Foto (6 Foto)</label>
-        <label><input type="checkbox" name="fitur" value="Gallery Video" />Gallery Video</label>
-        <label><input type="checkbox" name="fitur" value="Love Story" />Love Story</label>
-        <label><input type="checkbox" name="fitur" value="Amplop Digital" />Amplop Digital</label>
-        <label><input type="checkbox" name="fitur" value="Fitur Kado" />Fitur Kado</label>
-        <label><input type="checkbox" name="fitur" value="Text Bisa Disesuaikan" />Text Bisa Disesuaikan</label>
-        <label><input type="checkbox" name="fitur" value="Bebas Pilih Font" />Bebas Pilih Font</label>
-        <label><input type="checkbox" name="fitur" value="Hashtag" />Hashtag</label>
+        <label><input type="checkbox" name="fitur" value="Unlimate Nama Tamu" /> 1. Unlimate Nama Tamu</label>
+        <label><input type="checkbox" name="fitur" value="Sampul" /> 2. Sampul</label>
+        <label><input type="checkbox" name="fitur" value="Informasi Mempelai" /> 3. Informasi Mempelai</label>
+        <label><input type="checkbox" name="fitur" value="Informasi Acara" /> 4. Informasi Acara (max 2 acara)</label>
+        <label><input type="checkbox" name="fitur" value="Navigasi Peta" /> 5. Navigasi Peta</label>
+        <label><input type="checkbox" name="fitur" value="Request Musik" /> 6. Request Musik</label>
+        <label><input type="checkbox" name="fitur" value="Countdown Timer" /> 7. Countdown Timer</label>
+        <label><input type="checkbox" name="fitur" value="RSVP" /> 8. RSVP</label>
+        <label><input type="checkbox" name="fitur" value="Friends Wishes" /> 9. Friends Wishes</label>
+        <label><input type="checkbox" name="fitur" value="Link Live Streaming" /> 10. Link Live Streaming</label>
+        <label><input type="checkbox" name="fitur" value="Gallery Foto" /> 11. Gallery Foto (6 Foto)</label>
+        <label><input type="checkbox" name="fitur" value="Gallery Video" /> 12. Gallery Video</label>
+        <label><input type="checkbox" name="fitur" value="Love Story" /> 13. Love Story</label>
+        <label><input type="checkbox" name="fitur" value="Amplop Digital" /> 14. Amplop Digital</label>
+        <label><input type="checkbox" name="fitur" value="Fitur Kado" /> 15. Fitur Kado</label>
+        <label><input type="checkbox" name="fitur" value="Text Bisa Disesuaikan" /> 16. Text Bisa Disesuaikan</label>
+        <label><input type="checkbox" name="fitur" value="Bebas Pilih Font" /> 17. Bebas Pilih Font</label>
+        <label><input type="checkbox" name="fitur" value="Hashtag" /> 18. Hashtag</label>
       </div>
 
       <button type="submit">Kirim via WhatsApp</button>
@@ -71,8 +71,13 @@
       const hadir = document.getElementById('kehadiran').value;
       const pasangan = document.getElementById('pasangan').value;
 
-      const fiturDipilih = Array.from(document.querySelectorAll('input[name="fitur"]:checked'))
-                                .map(cb => cb.value);
+      const fiturEls = document.querySelectorAll('input[name="fitur"]');
+      let fiturList = "";
+
+      fiturEls.forEach(cb => {
+        const icon = cb.checked ? "✅" : "❌";
+        fiturList += `${icon} ${cb.value}\n`;
+      });
 
       if (!nama || !alamat || !hp || !hadir || !pasangan) {
         alert("Mohon lengkapi semua data.");
@@ -83,13 +88,8 @@
 
       let pesan = `Halo! Saya ingin memesan undangan digital:\n\n` +
                   `Nama: ${nama}\nAlamat: ${alamat}\nNo HP: ${hp}\n` +
-                  `Kehadiran: ${hadir}\nMembawa Pasangan: ${pasangan}\n`;
-
-      if (fiturDipilih.length > 0) {
-        pesan += `\nFitur yang Dipilih:\n- ${fiturDipilih.join('\n- ')}`;
-      } else {
-        pesan += `\n(Tidak memilih fitur apa pun)`;
-      }
+                  `Kehadiran: ${hadir}\nMembawa Pasangan: ${pasangan}\n\n` +
+                  `Fitur:\n${fiturList}`;
 
       const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       window.open(url, '_blank');
