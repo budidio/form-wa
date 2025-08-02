@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Form Kehadiran ke WhatsApp</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Form Pemesanan Undangan Digital</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
@@ -16,9 +16,9 @@
       <input type="text" id="nama_pemesan" maxlength="50" required />
 
       <label for="email">Email:</label>
-      <input type="text" id="Email" maxlength="100" required />
+      <input type="text" id="email" maxlength="100" required />
 
-      <label for="no_whatsapp">No. Whatsapp:</label>
+      <label for="hp">No. Whatsapp:</label>
       <input type="tel" id="hp" required pattern="08[0-9]{8,12}" />
 
       <label for="tema">Tema:</label>
@@ -41,68 +41,49 @@
       <label for="nama_awal_udangan">Nama Awal Undangan :</label>
       <input type="text" id="nama_awal_udangan" maxlength="100" placeholder="Ibnu & Ririn" />
 
-      <h3 style="text-align: center;">Identitas Pengantin Perempuan</h3>
+      <h3>Identitas Pengantin Perempuan</h3>
       <label for="nama_perempuan">Nama Lengkap Perempuan:</label>
       <input type="text" id="nama_perempuan" maxlength="100"/>
-      <table>
-        <tr>
-          <td>
-            <label for="anak_perempuan">Anak Ke:</label>
-          </td>
-          <td>
-            <input type="text" id="anak_perempuan"pattern="08[0-9]{8,12}" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="nama_bapak_perempuan">Nama Bapak</label>
-            <input type="text" id="nama_bapak_perempuan" maxlength="100"/>
-          </td>
-          <td>
-            <label for="nama_ibu_perempuan">Nama Ibu</label>
-            <input type="text" id="nama_ibu_perempuan" maxlength="100"/>
-          </td>
-        </tr>
-      </table>
+      
+      <label for="anak_perempuan">Anak Ke:</label>
+      <input type="text" id="anak_perempuan" />
 
-      <h3 style="text-align: center;">Identitas Pengantin Laki - Laki</h3>
+      <label for="nama_bapak_perempuan">Nama Bapak</label>
+      <input type="text" id="nama_bapak_perempuan" maxlength="100"/>
+
+      <label for="nama_ibu_perempuan">Nama Ibu</label>
+      <input type="text" id="nama_ibu_perempuan" maxlength="100"/>
+
+      <h3>Identitas Pengantin Laki - Laki</h3>
       <label for="nama_laki_laki">Nama Lengkap Laki - Laki:</label>
       <input type="text" id="nama_laki_laki" maxlength="100"/>
-      <table>
-        <tr>
-          <td>
-            <label for="anak_laki_laki">Anak Ke:</label>
-          </td>
-          <td><input type="text" id="anak_laki_laki"pattern="08[0-9]{8,12}" /></td>
-        </tr>
-        <tr>
-          <td>
-            <label for="nama_bapak_laki_laki">Nama Bapak</label>
-            <input type="text" id="nama_bapak_laki_laki" maxlength="100"/>
-          </td>
-          <td>
-            <label for="nama_ibu_laki_laki">Nama Ibu</label>
-            <input type="text" id="nama_ibu_laki_laki" maxlength="100"/>
-          </td>
-        </tr>
-      </table>
+
+      <label for="anak_laki_laki">Anak Ke:</label>
+      <input type="text" id="anak_laki_laki"/>
+
+      <label for="nama_bapak_laki_laki">Nama Bapak</label>
+      <input type="text" id="nama_bapak_laki_laki" maxlength="100"/>
+
+      <label for="nama_ibu_laki_laki">Nama Ibu</label>
+      <input type="text" id="nama_ibu_laki_laki" maxlength="100"/>
 
       <label for="akad_pemberkatan">Akad / Pemberkatan:</label>
       <select id="akad_pemberkatan" required>
         <option value="">-- Pilih --</option>
         <option value="Akad">Akad</option>
-        <option value="PR & LK">Pemberkatan</option>
+        <option value="Pemberkatan">Pemberkatan</option>
       </select>
-      <label for="hari_akad">Hari:</label>
+
+      <label for="hari_akad">Hari Akad:</label>
       <input type="text" id="hari_akad" maxlength="100"/>
 
-      <label for="tanggal_akad">Tanggal:</label>
+      <label for="tanggal_akad">Tanggal Akad:</label>
       <input type="text" id="tanggal_akad" maxlength="100"/>
 
-      <label for="alamat_akad">Alamat:</label>
+      <label for="alamat_akad">Alamat Akad:</label>
       <input type="text" id="alamat_akad" maxlength="100"/>
 
-      <label for="link_gmaps_akad">Link G.Maps:</label>
+      <label for="link_gmaps_akad">Link G.Maps Akad:</label>
       <input type="text" id="link_gmaps_akad" maxlength="100"/>
 
       <label for="resepsi_ngunduh_mantu">Resepsi / Ngunduh Mantu:</label>
@@ -111,19 +92,17 @@
         <option value="Resepsi">Resepsi</option>
         <option value="Ngunduh Mantu">Ngunduh Mantu</option>
       </select>
-      <label for="hari_resepsi">Hari:</label>
-      <input type="text" id="hari_resepsi" maxlength="100"/>
-      
-      <label for="hari_resepsi">Hari:</label>
+
+      <label for="hari_resepsi">Hari Resepsi:</label>
       <input type="text" id="hari_resepsi" maxlength="100"/>
 
-      <label for="tanggal_resepsi">Tanggal:</label>
+      <label for="tanggal_resepsi">Tanggal Resepsi:</label>
       <input type="text" id="tanggal_resepsi" maxlength="100"/>
 
-      <label for="alamat_resepsi">Alamat:</label>
+      <label for="alamat_resepsi">Alamat Resepsi:</label>
       <input type="text" id="alamat_resepsi" maxlength="100"/>
 
-      <label for="link_gmaps_resepsi">Link G.Maps:</label>
+      <label for="link_gmaps_resepsi">Link G.Maps Resepsi:</label>
       <input type="text" id="link_gmaps_resepsi" maxlength="100"/>
 
       <label for="musik">Lagu/Musik:</label>
@@ -133,17 +112,17 @@
       <input type="text" id="video_priwedding" maxlength="100"/>
 
       <h3>Amplop Digital</h3>
-      <label for="nama_bank_1">Nama Bank:</label>
+      <label for="nama_bank_1">Nama Bank 1:</label>
       <input type="text" id="nama_bank_1" maxlength="100"/>
       <label for="no_bank_1">No. Rekening 1:</label>
       <input type="text" id="no_bank_1" maxlength="100"/>
       <label for="a_n_1">A.n:</label>
       <input type="text" id="a_n_1" maxlength="100"/>
 
-      <label for="nama_bank_2">Nama Bank:</label>
+      <label for="nama_bank_2">Nama Bank 2:</label>
       <input type="text" id="nama_bank_2" maxlength="100"/>
       <label for="no_bank_2">No. Rekening 2:</label>
-      <input type="text" id="no_bank_1" maxlength="100"/>
+      <input type="text" id="no_bank_2" maxlength="100"/>
       <label for="a_n_2">A.n:</label>
       <input type="text" id="a_n_2" maxlength="100"/>
 
@@ -152,25 +131,24 @@
 
       <h3>Fitur yang Diinginkan:</h3>
       <div class="checkbox-group">
-        
-        <label><input type="checkbox" name="fitur" value="Unlimate Nama Tamu" />Unlimate Nama Tamu</label>
-        <label><input type="checkbox" name="fitur" value="Sampul" />Sampul</label>
-        <label><input type="checkbox" name="fitur" value="Informasi Mempelai" />Informasi Mempelai</label>
-        <label><input type="checkbox" name="fitur" value="Informasi Acara" />Informasi Acara (max 2 acara)</label>
-        <label><input type="checkbox" name="fitur" value="Navigasi Peta" />Navigasi Peta</label>
-        <label><input type="checkbox" name="fitur" value="Request Musik" />Request Musik</label>
-        <label><input type="checkbox" name="fitur" value="Countdown Timer" />Countdown Timer</label>
-        <label><input type="checkbox" name="fitur" value="RSVP" />RSVP</label>
-        <label><input type="checkbox" name="fitur" value="Friends Wishes" />Friends Wishes</label>
-        <label><input type="checkbox" name="fitur" value="Link Live Streaming" />Link Live Streaming</label>
-        <label><input type="checkbox" name="fitur" value="Gallery Foto" />Gallery Foto (6 Foto)</label>
-        <label><input type="checkbox" name="fitur" value="Gallery Video" />Gallery Video</label>
-        <label><input type="checkbox" name="fitur" value="Love Story" />Love Story</label>
-        <label><input type="checkbox" name="fitur" value="Amplop Digital" />Amplop Digital</label>
-        <label><input type="checkbox" name="fitur" value="Fitur Kado" />Fitur Kado</label>
-        <label><input type="checkbox" name="fitur" value="Text Bisa Disesuaikan" />Text Bisa Disesuaikan</label>
-        <label><input type="checkbox" name="fitur" value="Bebas Pilih Font" />Bebas Pilih Font</label>
-        <label><input type="checkbox" name="fitur" value="Hashtag" />Hashtag</label>
+        <label><input type="checkbox" name="fitur" value="Unlimate Nama Tamu" /> Unlimate Nama Tamu</label>
+        <label><input type="checkbox" name="fitur" value="Sampul" /> Sampul</label>
+        <label><input type="checkbox" name="fitur" value="Informasi Mempelai" /> Informasi Mempelai</label>
+        <label><input type="checkbox" name="fitur" value="Informasi Acara" /> Informasi Acara (max 2 acara)</label>
+        <label><input type="checkbox" name="fitur" value="Navigasi Peta" /> Navigasi Peta</label>
+        <label><input type="checkbox" name="fitur" value="Request Musik" /> Request Musik</label>
+        <label><input type="checkbox" name="fitur" value="Countdown Timer" /> Countdown Timer</label>
+        <label><input type="checkbox" name="fitur" value="RSVP" /> RSVP</label>
+        <label><input type="checkbox" name="fitur" value="Friends Wishes" /> Friends Wishes</label>
+        <label><input type="checkbox" name="fitur" value="Link Live Streaming" /> Link Live Streaming</label>
+        <label><input type="checkbox" name="fitur" value="Gallery Foto" /> Gallery Foto (6 Foto)</label>
+        <label><input type="checkbox" name="fitur" value="Gallery Video" /> Gallery Video</label>
+        <label><input type="checkbox" name="fitur" value="Love Story" /> Love Story</label>
+        <label><input type="checkbox" name="fitur" value="Amplop Digital" /> Amplop Digital</label>
+        <label><input type="checkbox" name="fitur" value="Fitur Kado" /> Fitur Kado</label>
+        <label><input type="checkbox" name="fitur" value="Text Bisa Disesuaikan" /> Text Bisa Disesuaikan</label>
+        <label><input type="checkbox" name="fitur" value="Bebas Pilih Font" /> Bebas Pilih Font</label>
+        <label><input type="checkbox" name="fitur" value="Hashtag" /> Hashtag</label>
       </div>
 
       <button type="submit">Kirim via WhatsApp</button>
@@ -178,99 +156,87 @@
   </div>
 
   <script>
-  function sanitize(input) {
-    return input.replace(/[<>]/g, '').trim();
-  }
-
-  document.getElementById('waForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Ambil data dari inputan
-    const nama = sanitize(document.getElementById('nama').value);
-    const alamat = sanitize(document.getElementById('alamat').value);
-    const hp = sanitize(document.getElementById('hp').value);
-
-    const nama_pemesan = sanitize(document.getElementById('nama_pemesan').value);
-    const email = sanitize(document.getElementById('Email').value);
-    const tema = document.getElementById('tema').value;
-
-    const nama_awal = document.getElementById('nama_awal').value;
-    const nama_awal_udangan = document.getElementById('nama_awal_udangan').value;
-  
-    const nama_perempuan = sanitize(document.getElementById('nama_perempuan').value);
-    const anak_perempuan = sanitize(document.getElementById('anak_perempuan').value);
-    const nama_bapak_perempuan = sanitize(document.getElementById('nama_bapak_perempuan').value);
-    const nama_ibu_perempuan = sanitize(document.getElementById('nama_ibu_perempuan').value);
-
-    const nama_laki_laki = sanitize(document.getElementById('nama_laki_laki').value);
-    const anak_laki_laki = sanitize(document.getElementById('anak_laki_laki').value);
-    const nama_bapak_laki_laki = sanitize(document.getElementById('nama_bapak_laki_laki').value);
-    const nama_ibu_laki_laki = sanitize(document.getElementById('nama_ibu_laki_laki').value);
-
-    const akad_pemberkatan = document.getElementById('akad_pemberkatan').value;
-    const hari_akad = sanitize(document.getElementById('hari_akad').value);
-    const tanggal_akad = sanitize(document.getElementById('tanggal_akad').value);
-    const alamat_akad = sanitize(document.getElementById('alamat_akad').value);
-    const gmaps_akad = sanitize(document.getElementById('link_gmaps_akad').value);
-
-    const resepsi_ngunduh_mantu = document.getElementById('resepsi_ngunduh_mantu').value;
-    const hari_resepsi = sanitize(document.getElementById('hari_resepsi').value);
-    const tanggal_resepsi = sanitize(document.getElementById('tanggal_resepsi').value);
-    const alamat_resepsi = sanitize(document.getElementById('alamat_resepsi').value);
-    const gmaps_resepsi = sanitize(document.getElementById('link_gmaps_resepsi').value);
-
-    const musik = sanitize(document.getElementById('musik').value);
-    const video_priwedding = sanitize(document.getElementById('video_priwedding').value);
-
-    const bank1 = {
-      nama: sanitize(document.getElementById('nama_bank_1').value),
-      no: sanitize(document.getElementById('no_bank_1').value),
-      an: sanitize(document.getElementById('a_n_1').value)
-    };
-
-    const bank2 = {
-      nama: sanitize(document.getElementById('nama_bank_2').value),
-      no: sanitize(document.getElementById('no_bank_2').value),
-      an: sanitize(document.getElementById('a_n_2').value)
-    };
-
-    const kado = sanitize(document.getElementById('kado').value);
-
-    // Fitur centang
-    const fiturCheckboxes = document.querySelectorAll('input[name="fitur"]');
-    let fiturText = '';
-    fiturCheckboxes.forEach(cb => {
-      const icon = cb.checked ? '✅' : '❌';
-      fiturText += `${icon} ${cb.value}\n`;
-    });
-
-    // Validasi sederhana
-    if (!nama || !alamat || !hp) {
-      alert("Nama, alamat, dan HP wajib diisi.");
-      return;
+    function sanitize(input) {
+      return input.replace(/[<>]/g, '').trim();
     }
 
-    // Format pesan
-    const pesan = `Konfirmasi Pemesanan Undangan Digital:\n\n` +
-      `📌 Nama Pemesan: ${nama_pemesan}\n📧 Email: ${email}\n📱 No. WA: ${hp}\n🎨 Tema: ${tema}\n\n` +
-      `📋 Nama Awal: ${nama_awal}\n\n📋 Nama Awal Undangan: ${nama_awal_udangan}\n👰 Nama Perempuan: ${nama_perempuan}\n👧 Anak Ke: ${anak_perempuan}\n` +
-      `👨 Bapak: ${nama_bapak_perempuan}\n👩 Ibu: ${nama_ibu_perempuan}\n\n` +
-      `🤵 Nama Laki-laki: ${nama_laki_laki}\n🧒 Anak Ke: ${anak_laki_laki}\n` +
-      `👨 Bapak: ${nama_bapak_laki_laki}\n👩 Ibu: ${nama_ibu_laki_laki}\n\n` +
-      `💍 ${akad_pemberkatan}\n📅 ${hari_akad}, ${tanggal_akad}\n📍 ${alamat_akad}\n🌐 ${gmaps_akad}\n\n` +
-      `🎉 ${resepsi_ngunduh_mantu}\n📅 ${hari_resepsi}, ${tanggal_resepsi}\n📍 ${alamat_resepsi}\n🌐 ${gmaps_resepsi}\n\n` +
-      `🎵 Musik: ${musik}\n🎬 Video Priwedding: ${video_priwedding}\n\n` +
-      `💳 Amplop Digital 1:\nBank: ${bank1.nama}\nNo: ${bank1.no}\nA.n: ${bank1.an}\n\n` +
-      `💳 Amplop Digital 2:\nBank: ${bank2.nama}\nNo: ${bank2.no}\nA.n: ${bank2.an}\n\n🎁 Kado: ${kado}\n\n` +
-      `🧩 Fitur:\n${fiturText}`;
+    document.getElementById('waForm').addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    // Kirim ke WhatsApp
-    const nomorWA = "6285959536858"; // Ganti dengan nomor admin
-    const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
-    window.open(url, '_blank');
-  });
-</script>
+      const nama_pemesan = sanitize(document.getElementById('nama_pemesan').value);
+      const email = sanitize(document.getElementById('email').value);
+      const hp = sanitize(document.getElementById('hp').value);
 
+      if (!nama_pemesan || !hp) {
+        alert("Nama Pemesan dan No. HP wajib diisi.");
+        return;
+      }
+
+      const tema = document.getElementById('tema').value;
+      const nama_awal = document.getElementById('nama_awal').value;
+      const nama_awal_udangan = document.getElementById('nama_awal_udangan').value;
+
+      const nama_perempuan = sanitize(document.getElementById('nama_perempuan').value);
+      const anak_perempuan = sanitize(document.getElementById('anak_perempuan').value);
+      const nama_bapak_perempuan = sanitize(document.getElementById('nama_bapak_perempuan').value);
+      const nama_ibu_perempuan = sanitize(document.getElementById('nama_ibu_perempuan').value);
+
+      const nama_laki_laki = sanitize(document.getElementById('nama_laki_laki').value);
+      const anak_laki_laki = sanitize(document.getElementById('anak_laki_laki').value);
+      const nama_bapak_laki_laki = sanitize(document.getElementById('nama_bapak_laki_laki').value);
+      const nama_ibu_laki_laki = sanitize(document.getElementById('nama_ibu_laki_laki').value);
+
+      const akad_pemberkatan = document.getElementById('akad_pemberkatan').value;
+      const hari_akad = sanitize(document.getElementById('hari_akad').value);
+      const tanggal_akad = sanitize(document.getElementById('tanggal_akad').value);
+      const alamat_akad = sanitize(document.getElementById('alamat_akad').value);
+      const gmaps_akad = sanitize(document.getElementById('link_gmaps_akad').value);
+
+      const resepsi_ngunduh_mantu = document.getElementById('resepsi_ngunduh_mantu').value;
+      const hari_resepsi = sanitize(document.getElementById('hari_resepsi').value);
+      const tanggal_resepsi = sanitize(document.getElementById('tanggal_resepsi').value);
+      const alamat_resepsi = sanitize(document.getElementById('alamat_resepsi').value);
+      const gmaps_resepsi = sanitize(document.getElementById('link_gmaps_resepsi').value);
+
+      const musik = sanitize(document.getElementById('musik').value);
+      const video_priwedding = sanitize(document.getElementById('video_priwedding').value);
+
+      const bank1 = {
+        nama: sanitize(document.getElementById('nama_bank_1').value),
+        no: sanitize(document.getElementById('no_bank_1').value),
+        an: sanitize(document.getElementById('a_n_1').value)
+      };
+
+      const bank2 = {
+        nama: sanitize(document.getElementById('nama_bank_2').value),
+        no: sanitize(document.getElementById('no_bank_2').value),
+        an: sanitize(document.getElementById('a_n_2').value)
+      };
+
+      const kado = sanitize(document.getElementById('kado').value);
+
+      const fiturCheckboxes = document.querySelectorAll('input[name="fitur"]');
+      let fiturText = '';
+      fiturCheckboxes.forEach(cb => {
+        const icon = cb.checked ? '✅' : '❌';
+        fiturText += `${icon} ${cb.value}\n`;
+      });
+
+      const pesan = `Konfirmasi Pemesanan Undangan Digital:\n\n` +
+        `📌 Nama Pemesan: ${nama_pemesan}\n📧 Email: ${email}\n📱 No. WA: ${hp}\n🎨 Tema: ${tema}\n\n` +
+        `📋 Nama Awal: ${nama_awal}\n📋 Nama Awal Undangan: ${nama_awal_udangan}\n👰 ${nama_perempuan}, Anak ke-${anak_perempuan}, ${nama_bapak_perempuan} & ${nama_ibu_perempuan}\n\n` +
+        `🤵 ${nama_laki_laki}, Anak ke-${anak_laki_laki}, ${nama_bapak_laki_laki} & ${nama_ibu_laki_laki}\n\n` +
+        `💍 ${akad_pemberkatan} - ${hari_akad}, ${tanggal_akad}\n📍 ${alamat_akad}\n🌐 ${gmaps_akad}\n\n` +
+        `🎉 ${resepsi_ngunduh_mantu} - ${hari_resepsi}, ${tanggal_resepsi}\n📍 ${alamat_resepsi}\n🌐 ${gmaps_resepsi}\n\n` +
+        `🎵 Musik: ${musik}\n🎬 Video Priwedding: ${video_priwedding}\n\n` +
+        `💳 Rekening 1: ${bank1.nama} - ${bank1.no} a.n ${bank1.an}\n💳 Rekening 2: ${bank2.nama} - ${bank2.no} a.n ${bank2.an}\n🎁 Kado: ${kado}\n\n` +
+        `🧩 Fitur:\n${fiturText}`;
+
+      const nomorWA = "6285959536858";
+      const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    });
+  </script>
 
 </body>
 </html>
