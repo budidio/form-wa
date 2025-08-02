@@ -1,105 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Form Identitas ke WhatsApp</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .form-container {
-      background: #ffffff;
-      padding: 30px 40px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      max-width: 400px;
-      width: 100%;
-    }
-
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #4B3F72;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    input[type="text"],
-    input[type="tel"] {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 18px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-sizing: border-box;
-      transition: border-color 0.3s;
-    }
-
-    input:focus {
-      border-color: #4B3F72;
-      outline: none;
-    }
-
-    button {
-      background-color: #4B3F72;
-      color: #fff;
-      border: none;
-      padding: 12px;
-      width: 100%;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #3a3261;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Kehadiran ke WhatsApp</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="form-container">
-    <h2>Form Identitas</h2>
-    <form id="waForm">
-      <label for="nama">Nama Lengkap</label>
-      <input type="text" id="nama" required>
+    <h2>Form Konfirmasi Kehadiran</h2>
+    <form id="waForm" autocomplete="off" novalidate>
+      <label for="nama">Nama Lengkap:</label>
+      <input type="text" id="nama" maxlength="50" required pattern="[a-zA-Z\\s]+" title="Hanya huruf dan spasi" />
 
-      <label for="alamat">Alamat</label>
-      <input type="text" id="alamat" required>
+      <label for="alamat">Alamat:</label>
+      <input type="text" id="alamat" maxlength="100" required />
 
-      <label for="hp">Nomor HP</label>
-      <input type="tel" id="hp" required>
+      <label for="hp">Nomor HP:</label>
+      <input type="tel" id="hp" required pattern="08[0-9]{8,12}" title="Nomor HP harus dimulai dengan 08 dan angka saja" />
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="hadir" required /> Saya akan hadir</label><br />
+        <label><input type="checkbox" id="pasangan" /> Saya membawa pasangan</label>
+      </div>
 
       <button type="submit">Kirim via WhatsApp</button>
     </form>
   </div>
 
   <script>
+    function sanitize(input) {
+      return input.replace(/[<>]/g, '');
+    }
+
     document.getElementById('waForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      var nama = document.getElementById('nama').value;
-      var alamat = document.getElementById('alamat').value;
-      var hp = document.getElementById('hp').value;
+      const nama = sanitize(document.getElementById('nama').value.trim());
+      const alamat = sanitize(document.getElementById('alamat').value.trim());
+      const hp = sanitize(document.getElementById('hp').value.trim());
+      const hadir = document.getElementById('hadir').checked;
+      const pasangan = document.getElementById('pasangan').checked;
 
-      var nomorWA = '6285959536858'; // ← Ganti dengan nomor WA tujuan
-      var pesan = `Halo! Saya ingin mengisi data identitas:\n\n` +
-                  `Nama: ${nama}\nAlamat: ${alamat}\nNomor HP: ${hp}`;
+      if (!nama || !alamat || !hp || !hadir) {
+        alert("Pastikan semua data telah diisi dan kehadiran dicentang.");
+        return;
+      }
 
-      var url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+      const nomorWA = '6285959536858'; // Ganti dengan nomor tujuan
+      let pesan = `Halo! Saya ingin konfirmasi kehadiran:\n\n` +
+                  `Nama: ${nama}\nAlamat: ${alamat}\nNo HP: ${hp}\n` +
+                  `Hadir: Ya\n`;
+
+      pesan += pasangan ? `Membawa pasangan: Ya\n` : `Membawa pasangan: Tidak\n`;
+
+      const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
       window.open(url, '_blank');
     });
   </script>
