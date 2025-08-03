@@ -12,6 +12,7 @@
     <h2>Form Pemesanan Undangan Digital</h2>
     <form id="waForm" autocomplete="off" novalidate>
 
+      <h3>Identitas Pemesan</h3>
       <label for="nama_pemesan">Nama Pemesan:</label>
       <input type="text" id="nama_pemesan" maxlength="50" required />
 
@@ -21,7 +22,11 @@
       <label for="hp">No. Whatsapp:</label>
       <input type="tel" id="hp" required pattern="08[0-9]{8,12}" />
 
-      <label for="tema">Tema:</label>
+      <label for="alamat">Alamat: Kota & Provinsi</label>
+      <input type="text" id="alamat" maxlength="100" required />      
+
+      <label for="tema">Desain Tema:</label>
+      <p style="color: red; font-style: italic; margin-top: -20px;">*Tema Tidak Bisa diubah</p>0
       <select id="tema" required>
         <option value="" disabled selected hidden>-- Pilih --</option>
         <option value="Tema 01">Tema 01</option>
@@ -29,6 +34,13 @@
         <option value="Tema 03">Tema 03</option>
         <option value="Tema 04">Tema 04</option>
         <option value="Tema 05">Tema 05</option>
+      </select>
+
+      <label for="paket_undangan">Pilih Paket Undangan:</label>
+      <select id="paket_undangan">
+        <option value="" disabled selected hidden>-- Pilih --</option>
+        <option value="Premium">Premium</option>
+        <option value="Platinum">Platinum</option>
       </select>
 
       <label for="nama_awal">Nama Awal Mempelai:</label>
@@ -165,6 +177,7 @@
 
       const nama_pemesan = sanitize(document.getElementById('nama_pemesan').value);
       const email = sanitize(document.getElementById('email').value);
+      const alamat = document.getElementById('alamat').value;
       const hp = sanitize(document.getElementById('hp').value);
 
       if (!nama_pemesan || !hp) {
@@ -173,6 +186,7 @@
       }
 
       const tema = document.getElementById('tema').value;
+      const paket_undangan = document.getElementById('paket_undangan').value;
       const nama_awal = document.getElementById('nama_awal').value;
       const nama_awal_udangan = document.getElementById('nama_awal_udangan').value;
 
@@ -226,8 +240,10 @@
       `*1. Data Pemesan*\n` +
       `- Nama Pemesan: ${nama_pemesan}\n` +
       `- Email: ${email}\n` +
+      `- Almamat: ${alamat}\n` +
       `- No. WA: ${hp}\n` +
-      `- Tema: ${tema}\n\n` +
+      `- Tema: ${tema}\n` +
+      `- Paket Undangan: ${paket_undangan}\n\n` +
 
       `*2. Nama Tampilan Awal*\n` +
       `- Nama Awal: ${nama_awal}\n` +
